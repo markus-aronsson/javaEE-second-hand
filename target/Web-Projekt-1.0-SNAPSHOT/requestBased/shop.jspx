@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Page for info about the shops (written by the owners),
+   Opportunities for users to comment and grade,
+   a map to the shop, the grade, link to web page, etc.
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" 
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns="http://www.w3.org/1999/xhtml" 
+          version="2.0">
+
+        <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+        <jsp:output omit-xml-declaration="true" />
+        <jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" />
+
+        <html>
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <title>SecondHand</title>
+                <link rel="stylesheet" href="../resources/css/layout.css" type="text/css" />
+                <script type="text/javascript" src="../resources/lib/jquery-1.9.1.js">
+                    //<![CDATA[<!-- -->]]>
+                </script>
+                <script type="text/javascript" src="../resources/lib/jquery-ui-1.10.2.custom.js">
+                    //<![CDATA[<!-- -->]]>
+                </script>
+                <script type="text/javascript" src="../resources/lib/raty.js">
+                    //<![CDATA[<!-- -->]]>
+                </script>
+                <script type="text/javascript" src="../resources/js/sharedView.js">
+                    //<![CDATA[<!-- -->]]>
+                </script>
+                <script type="text/javascript" src="../resources/js/shopView.js">
+                    //<![CDATA[<!-- -->]]>
+                </script>
+            </head>
+            <body>
+                <div id="container">
+                    
+                <jsp:directive.include file="../sharedContent/header.html" />
+                <jsp:directive.include file="../sharedContent/menu.html" />
+                
+                <div id="contentFull">
+                    <div id="list">
+                        <div class="listItem">
+                                <div class="listItemSide">
+                                    <div class="listItemLogo">
+                                        <img src="../resources/img/pop1.png" alt="logo" />
+                                        <ul class="listItemNav">
+                                            <li><a href="../serviceBased/products.html?id=${requestScope.SHOP.id}">View Products</a></li>
+                                            <li><a href="webpage">Goto webpage</a></li>
+                                            <li><a href="../serviceBased/map.jspx">View on Map</a></li>
+                                        </ul>
+                                    </div>
+                                </div>               
+                            <div id="lat" style="display: none">${requestScope.SHOP.latitude}</div>
+                            <div id="lng" style="display: none">${requestScope.SHOP.longitude}</div>
+                            <div id="shopView">
+                                <ul class="listItemAttr">
+                                    <p><h1 id="shopViewTitle">${requestScope.SHOP.name}</h1></p>
+                                    <p><h3 style="font-family: Georgia Bold">Current grade: 
+                                            <br/><div class="star" data-score="${requestScope.SHOP.avgrating}"></div></h3></p>
+                                    <p><h3 style="font-family: Georgia Bold">Address: </h3>
+                                        <div id="adress">No Adress found.</div></p>
+                                    <p><h3 style="font-family: Georgia Bold">Description: </h3>
+                                        ${requestScope.SHOP.description}
+                                    </p>
+                                    <c:if test="${not empty requestScope.organizationType}">
+                                        <p><h3 style="font-family: Georgia Bold">Organization Type:</h3>
+                                            <ul><li>${requestScope.SHOP.organizationType}</li></ul> </p>
+                                    </c:if>
+                                    <c:if test="${not empty requestScope.tradition}">
+                                        <p><h3 style="font-family: Georgia Bold">Tradition:</h3>
+                                            <ul><li>${requestScope.SHOP.tradition}</li></ul> </p>
+                                    </c:if>
+                                    <c:if test="${not empty requestScope.beneficiaries}">
+                                        <p><h3 style ="font-family: Georgia Bold">Beneficairies:</h3>    
+                                        <ul>
+                                        <c:forEach var="beneficiary" items="${requestScope.beneficiaries}">
+                                            <li>
+                                                <c:if test="${beneficiary == 'Missonary'}">
+                                                    Missionary
+                                                </c:if>
+                                                <c:if test="${beneficiary == 'SheltersHousing'}">
+                                                    Shelters/Housing
+                                                </c:if>
+                                                <c:if test="${beneficiary == 'DrugAlcoholAbuse'}">
+                                                    Drug/Alcohol-Abuse
+                                                </c:if>
+                                                <c:if test="${beneficiary == 'SoupKitchens'}">
+                                                    Soup kitchens
+                                                </c:if>
+                                                <c:if test="${beneficiary == 'NeedingPoorHelp'}">
+                                                    Help for the needing/poor
+                                                </c:if>
+                                            </li>
+                                        </c:forEach>
+                                        </ul>
+                                        </p>
+                                    </c:if>
+                                </ul>
+                            </div>
+                        </div>
+                       
+<!-- Comment area start ==================================================== -->
+                        
+                        <h3 id="subtitle">Comments</h3>
+                        <c:forEach var="comment" items="${requestScope.comments}">
+                            <div class="listItem">
+                                <div class="listItemDescription">
+                                    <h1>${comment.author}</h1>
+                                    <ul class="listItemAttr">
+                                        <li>Rating: <div class="star" data-score="${comment.rating}"></div></li>
+                                    </ul>
+                                    <br />
+                                    <p>
+                                        ${comment.text}
+                                    </p>
+                                </div>
+                            </div>                      
+                        </c:forEach>
+                        
+                        <div class="listItemComment">
+                            <a href="shopComment?shop=${requestScope.SHOP.id}"><h1>Write a Comment!</h1></a>
+                        </div>
+
+<!-- Comment area end ====================================================== -->
+
+                    </div>
+                </div>
+                <jsp:directive.include file="../sharedContent/footer.html" />
+                </div>
+            </body>
+        </html>
+    
+</jsp:root>

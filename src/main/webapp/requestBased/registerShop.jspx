@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Register a new shop
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" 
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns="http://www.w3.org/1999/xhtml" 
+          version="2.0">
+
+        <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+        <jsp:output omit-xml-declaration="true" />
+        <jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" />
+
+        <html>
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <title>Register your shop</title>
+                <link rel="stylesheet" href="../resources/css/layout.css" type="text/css" />
+            </head>
+            <body>
+                <div id="container">
+                    <jsp:directive.include file="../sharedContent/header.html" />
+                    <jsp:directive.include file="../sharedContent/menu.html" />
+                    <div id="contentFull">
+                        <div id="list">
+                            <h3 id="subtitle"> Register your shop </h3>
+                            <div class="listItem">
+                                <form method="POST" action="register">
+                                    <input type="hidden" name="action" value="shop" />
+                                    <table border="0">
+                                        <tbody>
+                                            <tr>
+                                                <td><label for="name">Shop Name: * </label> </td>
+                                                <td><input id="name" maxlength="45" name="name" type="text" required="required" /> </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td><label for="ownername">Shop Owner: * </label> </td>
+                                                <td><input id="ownername" maxlength="45" name="ownername" type="text" required="required" /> </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><label for="location">Location:</label> </td>
+                                                <td><input id="location" maxlength="85" name="location" type="text" /> </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><label for="latitude">Coordinates on Google Maps: *</label> </td>
+                                                <td>
+                                                    <input maxlength="25"  type="text" name="latitude" required="required" value="57.708895" />
+                                                    <input maxlength="25"  type="text" name="longitude" required="required" value="11.973479"/>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><label for="description">Description</label></td>
+                                                <td><textarea id="description" maxlength="255" name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In arcu risus, volutpat vitae eros eu, porta vehicula magna. Nullam urna sem, mattis quis massa vitae, venenatis vehicula orci.Pellentesque tincidunt erat orci, at accumsan leo euismod eu.</textarea></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><label for="organization">What kind of organization do you have?</label></td>
+                                                <td>
+                                                    <input type="radio" name="organization" value="NonProfit"/>Non-Profit
+                                                    <input type="radio" name="organization" value="PrivateCompany"/>Private Company
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><label for="beneficiary">Beneficiary?</label></td>
+                                                <td>
+                                                    <input type="checkbox" name="beneficiary" value="Missonary"/>Missionary
+                                                    <input type="checkbox" name="beneficiary" value="SheltersHousing"/>Shelters
+                                                    <input type="checkbox" name="beneficiary" value="DrugAlcoholAbuse"/>Drugs/Alcohol abuse
+                                                    <input type="checkbox" name="beneficiary" value="SoupKitchens"/>Soup kitchens
+                                                    <input type="checkbox" name="beneficiary" value="NeedingPoorHelp"/>Help for the poor
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><label for="tradition">Tradition?</label></td>
+                                                <td>
+                                                    <input type="radio" name="tradition" value="Christian"/>Christian
+                                                    <input type="radio" name="tradition" value="Secular" />Secular
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td align="right" colspan="2"><input name="Submit" type="submit" value="Submit" /></td>
+                                            </tr>
+                                            <tr>
+                                                 <label>Fields marked * are required</label>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </form>  
+                            </div>
+                        </div>
+                    </div>
+                    <jsp:directive.include file="../sharedContent/footer.html" />
+                </div>
+            </body>
+        </html>
+        
+</jsp:root>

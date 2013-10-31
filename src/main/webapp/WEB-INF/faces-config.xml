@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<faces-config version="2.0"
+              xmlns="http://java.sun.com/xml/ns/javaee" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+     
+    <!-- Main menu on all pages ============================================ -->
+    <navigation-rule>
+        <from-view-id>*</from-view-id> 
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>map</from-outcome>
+            <to-view-id>/serviceBased/map.jspx</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>register</from-outcome>
+            <to-view-id>/requestBased/register.jspx</to-view-id>
+        </navigation-case>
+
+     </navigation-rule>
+    
+    <!-- Shops to Products ================================================= -->
+    <navigation-rule>
+        <from-view-id>/componentBased/manageShops.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{shops.shop(s.id, authenticate.name)}</from-action>
+            <from-outcome>shop</from-outcome>
+            <to-view-id>/componentBased/manageProducts.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{shops.shop(s.id, authenticate.name)}</from-action>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/componentBased/manageShops.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- Products Add ====================================================== -->
+    <navigation-rule>
+        <from-view-id>/componentBased/manageProducts.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{products.add}</from-action>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/componentBased/addProduct.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule> 
+    <navigation-rule>
+        <from-view-id>/componentBased/manageShops.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{products.add}</from-action>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/componentBased/addProduct.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/componentBased/addProduct.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{addProduct.add}</from-action>
+            <from-outcome>PRODUCT_ADD_SUCCESS</from-outcome>
+            <to-view-id>/componentBased/manageProducts.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule> 
+    
+    <!-- Products Remove =================================================== -->
+    <navigation-rule>
+        <from-view-id>/componentBased/manageProducts.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{products.remove}</from-action>
+            <from-outcome>remove</from-outcome>
+            <to-view-id>/componentBased/removeProduct.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/componentBased/manageShops.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{products.remove}</from-action>
+            <from-outcome>remove</from-outcome>
+            <to-view-id>/componentBased/removeProduct.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+     <navigation-rule>
+        <from-view-id>/componentBased/removeProduct.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{removeProduct.remove}</from-action>
+            <from-outcome>PRODUCT_REMOVE_SUCCESS</from-outcome>
+            <to-view-id>/componentBased/manageProducts.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+     <!-- Products Edit ==================================================== -->
+     <navigation-rule>
+        <from-view-id>/componentBased/manageProducts.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{products.edit}</from-action>
+             <from-outcome>edit</from-outcome>
+            <to-view-id>/componentBased/editProduct.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/componentBased/manageShops.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{products.edit}</from-action>
+             <from-outcome>edit</from-outcome>
+            <to-view-id>/componentBased/editProduct.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/componentBased/editProduct.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{editProduct.edit}</from-action>
+            <from-outcome>PRODUCT_EDIT_SUCCESS</from-outcome>
+            <to-view-id>/componentBased/manageProducts.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

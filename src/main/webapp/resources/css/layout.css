@@ -1,0 +1,568 @@
+/* 
+    Document   : layout
+*/
+
+
+/* -------------------------------- Look ------------------------------------ */
+
+/* Color palette used:
+ *   - lightest; EBCFA5
+ *   - light;    EBC58C
+ *   - medium;   D8A964
+ *   - dark;     A0522D
+ *
+ *   - color-splash-liht; F8F8F8
+ *   - color-splash-dark; E8E8E8
+ */
+
+body {
+    background-color: #EBCFA5 !important;
+}
+
+#menu, #footer {
+    background-color: #D8A964 !important;
+}
+
+#menu li:hover, #menu li:focus {
+    background-color: #EBC58C !important;
+}
+
+#container #side {
+    background-color: #D8A964 !important;
+}
+
+#side #sideContainer {
+    background-color: #EBCFA5 !important;
+}
+
+#side #sideContainer .item {
+    background-color: #EBCFA5 !important;
+}
+
+#side #sideContainer .item:hover {
+    background-color: #EBC58C !important;
+}
+
+#side #sideContainer h1, h2 {
+    color:  	      #A0522D !important;
+}
+
+#list #listHeader h1, h2 {
+    color:  	      #A0522D !important;
+}
+
+#list #listHeader hr {
+    border-color:     #A0522D !important;
+}
+
+#list .listItem {
+    border-color:     #A0522D !important;
+}
+
+#list .listItemComment {
+    background-color: #D8A964 !important;
+}
+
+#list .listItemComment:hover {
+    background-color: #A0522D !important;
+}
+
+#list .listItem .listItemNav li a {
+    background-color: #E8E8E8 !important;
+}
+
+#list .listItem .listItemNav li a:hover, 
+#list .listItem .listItemNav li a:focus {
+    background:       #F8F8F8;
+    border-bottom-color: #777;
+}
+
+#list .listItem .listItemDescription h1 {
+    color:  	      #A0522D !important; 
+}
+
+#list .listItem .listItemDescription h1:hover {
+    color:  	      #D8A964 !important; 
+}
+
+/* ------------------------------- Layout ----------------------------------- */
+
+body {
+    margin: 0;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: normal; 
+}
+
+/* ----------------------------- Container --------------------------------- */
+
+#container {
+    font-family: Georgia Bold;
+    position: relative;
+    margin: 0 auto;
+    width: 60%;
+    min-height: 100%;
+}
+
+/* ----------------------------- Header and Menu ---------------------------- */
+
+#header {
+    margin-top: 40px;
+}
+
+#header img {
+    width: 100%; 
+    height: 100%;
+}
+
+#menu {
+    border-radius: 6px;
+    margin: 0 auto;
+    margin-top: 5px;
+    text-align: center;
+    -webkit-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+}
+
+#menu ul {
+    display: inline-block;
+    list-style-type:none;
+    margin: 0;
+    padding:0;
+    /* For IE, the outcast */
+    zoom:1;
+    *display: inline;
+}
+
+#menu li {
+    float: left;
+    margin: 0;
+    padding: 2px 10px;
+}
+
+#menu li a {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+/* ---------------------- Body - General ------------------------------------ */
+
+#content {
+    display: table;
+    width: 100%;
+    border-radius: 6px;
+    margin-top: 20px;
+    background-color: white;
+    -webkit-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+}
+
+#contentFull {
+    border-radius: 6px;
+    margin-top: 20px;
+    background-color: white;
+    -webkit-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+}
+
+/* ---------------------- Shop - List Side ---------------------------------- */
+
+#container #side {
+    display: table-cell;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px 0 0 5px;
+    width: 24%;
+    vertical-align: top;
+}
+
+#side .sideHeader {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#side #sideContainer {
+    border-radius: 6px;
+    padding: 3px;
+}
+
+#side #sideContainer .item {
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 6px;
+    padding: 0 10px 0 10px;
+}
+
+#side #sideContainer .item form {
+    text-align: center;
+}
+
+#side #sideContainer .item h1 {
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+#side #sideContainer .item h2 {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+#side #sideContainer .item > div {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#side #sideContainer .item input {
+    width: 95%;
+}
+
+#side .rating {
+    overflow: hidden;
+    display: inline-block;
+}
+#side .rating-input {
+    position: absolute;
+    left: 0;
+    top: -50px;
+}
+
+.rating:hover .rating-star:hover,
+.rating:hover .rating-star:hover ~ .rating-star,
+.rating-input:checked ~ .rating-star {
+    background-position: 0 0;
+}
+
+.rating-star, .rating:hover .rating-star {
+    float: right;
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: url('/Web-Projekt/resources/img/star.png') 0 -32px;
+}
+
+#side #sideFilters input {
+    width: 100%;
+}
+
+#side #sideFilters h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+.itemBody {
+    margin-bottom: 20px;
+}
+
+#toggleFilterButton button {
+    float: right;
+    padding: 4px;
+}
+
+.star {
+    display: inline-block;
+}
+
+#sliderDescription span {
+    font-size: 14px;
+    font-weight:normal; 
+    color:#666;
+    font-family: Georgia Bold;
+}
+
+#sliderDescription {
+    text-align:right;
+    margin-bottom:2px;
+}
+
+/* ----------------------- Shop - List view --------------------------------- */
+
+#list {
+    padding: 10px 20px;
+}
+
+#content #list {
+    display: table-cell;
+    width: 75%;
+}
+
+#contentFull #list {
+    display: block;
+}
+
+#contentFull #list .listItem {
+    padding-right: 10px;
+}
+
+#list #listHeader h1 {
+    font-weight: bold;
+    font-size: 34px;
+    margin-bottom: 0;
+}
+
+#list #listHeader h2 {
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 0;
+}
+
+#list .listItem {
+    overflow: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border-style:solid;
+    border-width:2px;
+    border-color: #a0522d;
+    border-radius: 6px;
+}
+
+#list .listItem:last-child {
+    margin-bottom: 20px;
+}
+
+#list .listItem .listItemSide  {
+    float: left;
+    margin:10px;
+}
+
+#list .listItem .listItemLogo img {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+#list .listItem .listItemLogo ul {
+    list-style:none;
+    padding:0; 
+    margin:5px 0 0 0; 
+    text-indent:0;
+}
+ 
+#list .listItem .listItemLogo li {
+    padding:0; 
+    margin:3px;
+}
+ 
+#list .listItem .listItemNav li a {
+    display:block; 
+    padding:7px; 
+    margin:0;
+    text-decoration:none; 
+    color:#000;
+    border-bottom:1px solid #bbb;
+    text-align:right;
+}
+ 
+#list .listItem .listItemNav li a::after {
+    content:'»';
+    color:#aaa; 
+    font-weight:bold;
+    float:right;
+    margin:0 2px 0 5px;
+}
+ 
+#list .listItem .listItemNav li a:hover::after {
+    margin:0 0 0 7px; 
+    color:#f93;
+}
+ 
+#list .listItem .listItemNav li a:active {
+    padding:8px 7px 6px 7px;
+}
+
+#list .listItem .listItemDescription {
+    overflow:auto; 
+    margin:10px;
+}
+
+#list .listItem .listItemDescription h1 {
+    border-bottom:1px solid #ddd;
+    letter-spacing:-0.05em; 
+    font-weight:bold;
+    margin-top:0;
+    margin-bottom: 0;
+    padding-top:0;
+}
+
+#list .listItem .listItemDescription .listItemAttr {
+    margin: 0 auto;
+    margin-left: 10px;
+    font-size: 14px;
+    font-family:Helvetica, Arial, sans-serif;
+    font-weight:normal; 
+    color:#666;
+    font-family: Georgia Bold;
+}
+
+#list .listItem .listItemDescription ul {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-family: Georgia Bold;
+    /* For IE, the outcast */
+        zoom:1;
+        *display: inline;
+}
+
+#list .listItem .listItemDescription li {
+    float: left;
+    padding: 2px 5px;
+}
+
+#list .listItem .listItemDescription a {
+    text-decoration:none;
+}
+
+#shopView {
+    display: block;
+    margin-left: 150px;
+}
+/* ---------------------- Shop - Comment view ------------------------------- */
+
+#list .listItem .listItemDescription table {
+    width: 100%;
+}
+
+#list .listItem .listItemDescription table textarea {
+    width: 99%;
+    height: 100px;
+}
+
+#list .listItemComment {
+    overflow: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border-style:solid;
+    border-width:2px;
+    border-color: #a0522d;
+    border-radius: 6px;
+}
+
+#list .listItemComment a {
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+/* ---------------------------- Footer -------------------------------------- */
+
+#footer {
+    border-radius: 6px;
+    text-align: center;
+    bottom : 0;
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    -webkit-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+}
+
+#footer li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+}
+
+#footer li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* ------------------------------- Store ------------------------------------ */
+
+#title {
+    font-family: Georgia Bold;
+    text-align: left !important;
+    margin: 20px 80px 20px 80px;
+    color:#A0522D;
+    font-weight:bold;
+    border-bottom:1px solid #bbb;
+}
+
+#shopViewTitle {
+    font-family: Georgia Bold;
+    text-align: left !important;
+    color:#A0522D;
+    font-weight:bold;
+    border-bottom:1px solid #bbb;
+    text-decoration: none;
+}
+
+#subtitle {
+    font-family: Georgia Bold;
+    margin:15px 0 0 0;
+    color:#a0522d;
+    text-align: left;
+    font-weight:bold;
+}
+
+#comment{
+    font-family: Georgia Bold;
+    background-color: #FFFFFF;
+    margin: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border-style:solid;
+    border-width:2px;
+    border-color: #a0522d;
+}
+
+/* ----------------------------- Products.html -------------------------------*/
+
+.image{
+   width: 150px;
+   height: 150px;
+   border-width: 2px;
+   border-style:solid;
+   border-radius: 4px;
+   border-color: #eae9d4;
+}
+
+#prodText {
+    display: inline-block;
+}
+
+#frame {
+    display: inline-block;
+    margin: 5%;
+    background-color:#eae9d4;
+    padding: 6px;
+    -webkit-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+    box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+    -webkit-border-radius: 4px;
+    border-radius: 4px;    
+}
+
+#frame:nth-child(3n) {
+    margin-right:0px;
+}
+
+.image:hover{
+  border-color:  #a0522d;
+}
+				
+/* ------------------------------- map.jspx ----------------------------------*/
+
+#map-canvas {
+    min-height: 400px;
+    background-color: transparent;
+}

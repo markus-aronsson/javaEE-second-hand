@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+        The page for the products of a shop
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv">
+    <head>
+        <link rel="stylesheet" href="../resources/css/layout.css" type="text/css" />
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/sunny/jquery-ui.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>SecondHand</title>
+        
+        <script type="text/javascript" src="../resources/lib/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="../resources/lib/jquery-ui-1.10.2.custom.js"></script>
+        <script type="text/javascript" src="../resources/js/productCatalogue.js" ></script>
+        <script type="text/javascript" src="../resources/js/container.js" ></script>
+        <script type="text/javascript" src="../resources/js/contentLoader.js" ></script>
+        <script type="text/javascript" src="../resources/js/productView.js" ></script>
+        
+    </head>
+    <body>
+        <div id="dialog" hidden="hidden"></div>
+        <div id="container">
+            
+            <!-- Header and Menu will be injected with javascript -->
+            
+            <div id="content">
+                
+<!-- Start of list side ==================================================== -->
+
+                <div id="side">
+                    <div class="sideHeader">
+                        <span>Filter products</span>
+                    </div>
+                    <div id="sideContainer">
+                        
+                        <div class="item">
+                            <form oninput="amount.value=distance.value">
+                                <div class="itemHeader">
+                                    <h2>Price: <output name="amount" for="distance">5</output>kr</h2>
+                                </div>
+                                <div class="itemBody">
+                                    <input type="range" id="distance" name="distance" min="1" max="10" value="5"/>
+                                </div>
+                            </form>
+                        </div>
+                       
+                        <button class="updateBtn">Update</button>
+
+                    </div>
+                </div>
+
+<!-- End of list side ====================================================== -->
+                
+                <h1 id="title">Products in shop</h1>
+                <div id ="products">
+			    
+                    <!-- Products will be injected with javascript -->
+                    
+                </div>
+            </div>  
+        </div>
+    </body>
+</html>

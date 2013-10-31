@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <!--
+    
+      THIS IS THE OVERALL LAYOUT FOR THE SITE (not accessible from outside)
+    
+    -->
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="layout.css"  />
+        <h:outputStylesheet library="lib/css" name="jquery-ui-1.10.3.custom.css" />
+        <h:outputScript library="lib" name="jquery-1.9.1.js"/>
+        <h:outputScript library="lib" name="jquery-ui-1.10.2.custom.js"/>
+        <h:outputScript library="lib" name="raty.js" target="body"/>
+        <title>Second Hand</title>
+    </h:head>
+
+    <h:body>
+        <div id="container">
+            <div id="header" align="center">
+                <img src="/Web-Projekt/resources/img/header2.png" alt="" />
+            </div>
+            <div id="menu">
+                <ul>
+                    <li><h:link outcome="home" value="Home" /></li>
+                    <li><a href="/Web-Projekt/serviceBased/map.jspx">Map</a></li>
+                    <li><a href="/Web-Projekt/requestBased/register.jspx">Register</a></li>
+                    <li><h:form><h:commandLink action="#{authenticate.logout}" value="Logout"/></h:form></li>
+                </ul>
+            </div>
+
+            <div id="content">
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+
+            <div id="footer">
+                <ul>
+                    <li><a href="/Web-Projekt/componentBased/manageShops.xhtml">Manage Shops</a></li>
+                    <li><a href="/Web-Projekt/requestBased/registerShop.jspx">Register Shops</a></li>
+                </ul>
+            </div>
+        </div>
+    </h:body>
+</html>

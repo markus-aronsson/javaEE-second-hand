@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+        The main page - displays all the shops
+        that are registered
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Second Hand finder</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="resources/templates/template.xhtml">
+        <ui:define name="content">
+            <h:outputScript library="js" name="sharedView.js" target="body"/>
+       
+<!-- Start of list side ==================================================== -->
+
+            <div id="side">
+                <div class="sideHeader">
+                    <span>Filter Shops</span>
+                </div>
+                <h:form>
+                    
+                    <div id="sideContainer">    
+                        <div class="item">
+                            <div class="itemHeader">
+                                <h2>Sort By</h2>
+                            </div>
+                            <div class="itemBody">
+                                <h:selectOneMenu id="sortMenu" style="width:100%" value="#{shops.sortingOption}">
+                                    <f:selectItems value="#{shops.sortingOptions}" />
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="itemHeader">
+                                <h2>Minimum Rating</h2>
+                            </div>
+                            <div class="itemBody">
+                                <h:inputHidden id="ratingInputField" value="#{shops.ratingFilter}" />
+                                <div class="write-star" data-score="#{shops.ratingFilter}"></div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="itemHeader">
+                                <h2>Distance Filter</h2>
+                            </div>
+                            <div class="itemBody">
+                                <h:inputHidden id="distanceInputField" value="#{shops.distanceFilter}"/>
+                                <div id="sliderDescription">
+                                    <span style="float:left">Far away</span>
+                                    <span>Close by</span>
+                                </div>
+                                <div id="distanceSlider"></div>
+                            </div>
+                        </div>
+                        <h:commandButton actionListener="#{shops.update}" value="Update" />
+                    </div>
+                    
+                </h:form>
+            </div>
+<!-- End of list side ====================================================== -->
+
+<!-- Start of main list ==================================================== -->
+            <div id="list">
+                <div id="listHeader"></div>
+                <ui:repeat value="#{shops.filteredRange}" var="shop">
+                    <div class="listItem">
+                        <div class="listItemSide">
+                            <div class="listItemLogo">
+                                <a href="requestBased/shop?shop=#{shop.id}"><img src="resources/img/pop1.png" alt="logo" /></a>
+                                <ul class="listItemNav">
+                                    <li><a href="serviceBased/products.html?id=#{shop.id}">View Products</a></li>
+                                    <li><a href="serviceBased/map.jspx">View on Map</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="listItemDescription">
+                            <a href="requestBased/shop?shop=#{shop.id}">
+                                <h1><h:outputText value="#{shop.name}"/></h1>
+                            </a>
+                            <ul class="listItemAttr">
+                                <li>Rating: <div class="star" data-score="#{shop.avgrating}"></div></li>
+                                <li>Location: <h:outputText value="#{shop.location}"/></li>
+                            </ul>
+                            <br />
+                            <p><h:outputText value="#{shop.description}"/></p>
+                        </div>
+                    </div>
+                </ui:repeat>
+            </div>
+
+<!-- End of main list ====================================================== -->
+
+        </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

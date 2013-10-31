@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Error when trying to register - 
+    the username was already used.
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" 
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns="http://www.w3.org/1999/xhtml" 
+          version="2.0">
+
+        <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+        <jsp:output omit-xml-declaration="true" />
+        <jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" />
+
+        <html>
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <title>Error Registering New User</title>
+                <link rel="stylesheet" href="../resources/css/layout.css" type="text/css" />
+            </head>
+            <body>
+                <div id="container">
+                    <jsp:directive.include file="../sharedContent/header.html" />
+                    <jsp:directive.include file="../sharedContent/menu.html"   />
+                    <div id="contentFull">
+                        <div id="list">
+                            <h3 id="subtitle">Invalid user name</h3>
+                            <div class="listItem">
+                                Please enter a user name that is not already registered.
+                                Click here to <a href="register.jspx">Try again</a>
+                            </div>
+                        </div>
+                    </div>
+                    <jsp:directive.include file="../sharedContent/footer.html" />
+                </div>
+            </body>
+        </html>
+                    
+</jsp:root>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+        The map-page
+-->
+
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" 
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns="http://www.w3.org/1999/xhtml" 
+          version="2.0">
+
+        <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+        <jsp:output omit-xml-declaration="true" />
+        <jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" />
+
+        <html>
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+                <title>SecondHand</title>
+                <link rel="stylesheet" href="../resources/css/layout.css" type="text/css" />
+                <script type="text/javascript" src="../resources/lib/jquery-1.9.1.js"></script>
+                <script type="text/javascript" src="../resources/lib/jquery-ui-1.10.2.custom.js"></script>  
+                <script type="text/javascript" src="../resources/lib/raty.js">
+                    //<![CDATA[<!-- -->]]>
+                </script>
+                <script type="text/javascript" src="../resources/js/shopCatalogue.js">
+                //<![CDATA[<!-- -->]]>
+                </script>
+                <script type="text/javascript" src="../resources/js/container.js">
+                //<![CDATA[<!-- -->]]>
+                </script>
+                <script type="text/javascript" src="../resources/js/mapView.js">
+                //<![CDATA[<!-- -->]]>
+                </script>
+            </head>
+            <body>
+                <div id="container">
+                    <jsp:directive.include file="../sharedContent/header.html" />
+                    <jsp:directive.include file="../sharedContent/menu.html" />
+
+                    <div id="contentFull">
+                        <div id="map-canvas">
+                            <!--[CDATA[]]-->
+                        </div>
+                    </div>
+                    
+                    <jsp:directive.include file="../sharedContent/footer.html" />
+                </div>
+            </body>
+        </html>
+</jsp:root>

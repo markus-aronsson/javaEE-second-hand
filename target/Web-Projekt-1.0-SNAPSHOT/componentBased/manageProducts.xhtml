@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    JSF - page for choosing to manage a product
+    in some way - adding it, editing it or deleting it.
+    Backed up by the Products backing bean.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" >
+    <h:head>
+        <title>Manage Product</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="../resources/templates/template.xhtml">
+            <ui:define name="content">
+                <h:form id="product-form">
+                    <h:commandButton actionListener="#{addProduct.setSelected(products.id)}"
+                                     action="#{products.add}"
+                                     value="Add Product" />
+                    <h:dataTable var="p" value="#{products.all}">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Id"/>
+                                </f:facet>
+                                <h:outputText value="#{p.id}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Name"/> 
+                                </f:facet>
+                                <h:outputText value="#{p.name}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Price"/>
+                                </f:facet>
+                                <h:outputText value="#{p.price}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Category"/>
+                                </f:facet>
+                                <h:outputText value="#{p.category}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Action"/>
+                                </f:facet>
+                                
+                                <h:commandButton actionListener="#{editProduct.setSelected(p.id, products.id)}" 
+                                                 action="#{products.edit}" 
+                                                 value="Edit" />
+                                
+                                <h:commandButton actionListener="#{removeProduct.setSelected(p.id, products.id)}"      
+                                                 action="#{products.remove}" 
+                                                 value="Delete" />
+                                
+                            </h:column>
+                        </h:dataTable>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
